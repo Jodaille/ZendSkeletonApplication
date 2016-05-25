@@ -11,9 +11,19 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Application\Model\Application;
 
 class IndexController extends AbstractActionController
 {
+    protected $_application;
+
+    public function __construct(Application $application = null)
+    {
+        if (!is_null($application)) {
+            $this->_application = $application;
+        }
+    }
+
     public function indexAction()
     {
         return new ViewModel();
