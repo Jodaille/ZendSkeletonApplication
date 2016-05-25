@@ -27,6 +27,7 @@ class IndexController extends AbstractActionController
     public function indexAction()
     {
         $view = new ViewModel();
+        $view->AppTitle = null;
         if($this->_application)
         {
             $view->AppTitle = $this->_application->getTitle();
