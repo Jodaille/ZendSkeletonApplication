@@ -61,6 +61,7 @@ return array(
         ),
         'factories' => array(
             'translator' => 'Zend\Mvc\Service\TranslatorServiceFactory',
+            'MyApplication' => 'Application\Factory\ApplicationFactory',
         ),
     ),
     'translator' => array(
