@@ -75,8 +75,11 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => Controller\IndexController::class
+            //'Application\Controller\Index' => Controller\IndexController::class
         ),
+        'factories' => array(
+            'Application\Controller\Index'  => 'Application\Controller\Factory\IndexControllerFactory',
+        )
     ),
     'view_manager' => array(
         'display_not_found_reason' => true,
