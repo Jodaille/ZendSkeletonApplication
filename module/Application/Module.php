@@ -12,6 +12,9 @@ namespace Application;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 
+use Zend\Console\Adapter\AdapterInterface as Console;
+
+
 class Module
 {
     public function onBootstrap(MvcEvent $e)
@@ -35,5 +38,10 @@ class Module
                 ),
             ),
         );
+    }
+
+    public function getConsoleUsage(Console $console)
+    {
+        return include __DIR__ . '/config/consoleusage.config.php';
     }
 }

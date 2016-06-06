@@ -15,8 +15,10 @@ class IndexControllerFactory implements FactoryInterface
         $sm = $serviceLocator->getServiceLocator();
 
         $application = $sm->get('MyApplication');
+        $ReadFile    = $sm->get('ReadFile');
 
-        $controller = new IndexController($application);
+
+        $controller = new IndexController($application, $ReadFile);
 
         return $controller;
     }

@@ -16,11 +16,15 @@ use Application\Model\Application;
 class IndexController extends AbstractActionController
 {
     protected $_application;
+    protected $_read_file;
 
-    public function __construct(Application $application = null)
+    public function __construct(Application $application = null, $ReadFile = null)
     {
         if (!is_null($application)) {
             $this->_application = $application;
+        }
+        if (!is_null($ReadFile)) {
+            $this->_read_file = $ReadFile;
         }
     }
 
@@ -32,6 +36,15 @@ class IndexController extends AbstractActionController
         {
             $view->AppTitle = $this->_application->getTitle();
         }
+        return $view;
+    }
+
+    public function readlogAction()
+    {
+        $view = new ViewModel();
+        $filename = '/Users/j_noury/Sites/ZfSkelFork/arduino.log';
+        $this->_read_file->parseLog($filename);
+
         return $view;
     }
 }

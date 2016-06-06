@@ -60,8 +60,9 @@ return array(
             'Zend\Log\LoggerAbstractServiceFactory',
         ),
         'factories' => array(
-            'translator' => 'Zend\Mvc\Service\TranslatorServiceFactory',
+            'translator'    => 'Zend\Mvc\Service\TranslatorServiceFactory',
             'MyApplication' => 'Application\Factory\ApplicationFactory',
+            'ReadFile'      => 'Application\Factory\ReadFileFactory',
         ),
     ),
     'translator' => array(
@@ -101,8 +102,7 @@ return array(
     // Placeholder for console routes
     'console' => array(
         'router' => array(
-            'routes' => array(
-            ),
+            'routes' => include __DIR__ . '/console.routes.config.php',
         ),
     ),
 );
